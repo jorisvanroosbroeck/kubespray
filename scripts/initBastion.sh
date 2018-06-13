@@ -15,7 +15,6 @@ LOGFILE=" "
 function createLogFile {
     LOGDIR="$HOME/LOG/" 
     TIMESTAMP=`getDate`
-    #LOGFILE="$HOME/LOG/$SCRIPTNAME-$TIMESTAMP.log"
     LOGFILE="$LOGDIR$SCRIPTNAME-$TIMESTAMP.log"
 
     if [ ! -d "$LOGDIR" ]
