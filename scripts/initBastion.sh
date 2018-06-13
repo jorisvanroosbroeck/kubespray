@@ -143,6 +143,10 @@ function confAnsible {
 
     CHECKSTRING='retry_files_enabled = False'
     checkConfig $FILE $CHECKSTRING
+
+    # KUBESPRAY STUFF
+    sudo mkdir /etc/ansible/.ssh
+    sudo cp -rfv /home/sysadmin/kubespray/extra_playbooks/id_rsa.pub /etc/ansible/.ssh/id_rsa.pub
 }
 
 function vmReboot {
