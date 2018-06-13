@@ -146,7 +146,7 @@ function confAnsible {
 
     # KUBESPRAY STUFF
     sudo mkdir /etc/ansible/.ssh
-    sudo cp -rfv /home/sysadmin/kubespray/extra_playbooks/k8sswiss/id_rsa.pub /etc/ansible/.ssh/id_rsa.pub
+    sudo cp -rfv /home/sysadmin/kubespray/extra_playbooks/k8sswiss/files/id_rsa.pub /etc/ansible/.ssh/id_rsa.pub
 }
 
 function vmReboot {
