@@ -147,7 +147,6 @@ function confAnsible {
     # KUBESPRAY STUFF
     sudo mkdir /etc/ansible/.ssh
     sudo cp -rfv /home/sysadmin/kubespray/extra_playbooks/k8sswiss/files/id_rsa.pub /etc/ansible/.ssh/id_rsa.pub
-    git clone -b k8sswiss https://github.com/jorisvanroosbroeck/kubespray.git
     sudo apt-get install python python-pip
     sudo pip install -r kubespray/requirements.txt
 }
