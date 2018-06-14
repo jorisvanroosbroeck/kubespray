@@ -1,0 +1,5 @@
+---
+  - name: Install iftop - Text based graphical network connection list
+    apt:
+      name: iftop
+      state: present

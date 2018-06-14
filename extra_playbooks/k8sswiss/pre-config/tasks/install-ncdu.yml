@@ -1,0 +1,5 @@
+---
+  - name: Install ncdu - Disk space checker
+    apt:
+      name: ncdu
+      state: present

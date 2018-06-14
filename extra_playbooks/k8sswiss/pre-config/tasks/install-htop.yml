@@ -1,0 +1,5 @@
+---
+  - name: Install htop - Text based graphical process list
+    apt:
+      name: htop
+      state: present

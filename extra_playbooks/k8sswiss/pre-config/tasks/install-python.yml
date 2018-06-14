@@ -1,0 +1,10 @@
+---
+  - name: Install Phyton
+    apt:
+      name: python
+      state: present
+  
+  - name: Install Python-PIP
+    apt:
+      name: python-pip
+      state: present

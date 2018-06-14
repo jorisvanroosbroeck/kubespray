@@ -1,0 +1,5 @@
+---
+  - name: Install lynis - Auditing tool
+    apt:
+      name: lynis
+      state: present

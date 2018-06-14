@@ -1,0 +1,5 @@
+---
+  - name: Install rkhunter - Spyware / Mallware program
+    apt:
+      name: rkhunter
+      state: present

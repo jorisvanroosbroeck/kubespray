@@ -1,0 +1,5 @@
+---
+  - name: Install chrootkit - Checking for rootkits
+    apt:
+      name: chrootkit
+      state: present

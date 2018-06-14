@@ -1,0 +1,21 @@
+---
+  - name: Equivalent of "apt-get update"
+    apt:
+      update_cache: yes
+
+  - name: Update all packages to lastest version
+    apt:
+      upgrade: dist
+  
+  - name: Upgrade all packages to latest version
+    apt:
+      name: "*"
+      state: latest
+
+  - name: Remove useless packages from the cache
+    apt:
+      autoclean: yes
+
+  - name: Remove dependancies that are no longer required
+    apt:
+      autoremove: yes
