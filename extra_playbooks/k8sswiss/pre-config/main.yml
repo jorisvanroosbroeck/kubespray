@@ -1,6 +1,6 @@
 ---
   # Playbook that runs on all hosts
-  - hosts: All
+  - hosts: all
     - import_playbook: install-updates-upgrades.yml
     - import_playbook: config-disable-swap.yml
     - import_playbook: config-ip-forward.yml
