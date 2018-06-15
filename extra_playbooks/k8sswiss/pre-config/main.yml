@@ -1,13 +1,13 @@
 ---
   # Playbook that runs on all hosts
   - hosts: all
-    - import_playbook: install-updates-upgrades.yml
-    - import_playbook: config-disable-swap.yml
-    - import_playbook: config-ip-forward.yml
-    - import_playbook: install-chrootkit.yml
-    - import_playbook: install-htop.yml
-    - import_playbook: install-iftop.yml
-    - import_playbook: install-lynis.yml
-    - import_playbook: install-ncdu.yml
-    - import_playbook: install-python.yml
-    - import_playbook: install-rkhunter.yml
+    - import_tasks: install-updates-upgrades.yml
+    - import_tasks: config-disable-swap.yml
+    - import_tasks: config-ip-forward.yml
+    - import_tasks: install-chrootkit.yml
+    - import_tasks: install-htop.yml
+    - import_tasks: install-iftop.yml
+    - import_tasks: install-lynis.yml
+    - import_tasks: install-ncdu.yml
+    - import_tasks: install-python.yml
+    - import_tasks: install-rkhunter.yml
