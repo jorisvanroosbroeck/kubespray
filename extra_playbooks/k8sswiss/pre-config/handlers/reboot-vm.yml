@@ -1,6 +1,6 @@
 ---
   - name: Reboot VM & wait until rebooted
-    hosts: all
+    hosts: k8s-cluster
     remote_user: root
 
     tasks:
