@@ -11,7 +11,6 @@
     - name: Update all packages to lastest version
       apt:
         upgrade: dist
-        register: apt_result
 
     - name: Remove useless packages from the cache
       apt:
