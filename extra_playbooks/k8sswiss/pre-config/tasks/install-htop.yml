@@ -1,5 +1,9 @@
 ---
   - name: Install htop - Text based graphical process list
-    apt:
-      name: htop
-      state: present
+    hosts: all
+    
+    tasks:
+    - name: Install htop program
+      apt:
+        name: htop
+        state: present
