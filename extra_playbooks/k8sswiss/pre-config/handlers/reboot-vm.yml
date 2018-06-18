@@ -4,4 +4,5 @@
     remote_user: root
 
     tasks:
-    - command: shutdown -r now
+    - name: Reboot VM
+      command: shutdown -r now
