@@ -1,6 +1,10 @@
 ---
   - name: Enable IPv4 forwarding
-    sysctl:
-      name: net.ipv4.ip_forward
-      value: 1
-      sysctl_set: yes
+    hosts: all
+
+    tasks:
+    - name: Enable IPv4 in sysctl.conf file
+      sysctl:
+        name: net.ipv4.ip_forward
+        value: 1
+        sysctl_set: yes

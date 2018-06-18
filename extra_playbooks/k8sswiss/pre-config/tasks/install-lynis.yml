@@ -1,5 +1,9 @@
 ---
   - name: Install lynis - Auditing tool
-    apt:
-      name: lynis
-      state: present
+    hosts: all
+
+    tasks:
+    - name: Install Lynis
+      apt:
+        name: lynis
+        state: present

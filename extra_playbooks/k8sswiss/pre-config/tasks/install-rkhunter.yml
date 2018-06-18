@@ -1,5 +1,9 @@
 ---
   - name: Install rkhunter - Spyware / Mallware program
-    apt:
-      name: rkhunter
-      state: present
+    hosts: all
+
+    tasks:
+    - name: Install rkhunter
+      apt:
+        name: rkhunter
+        state: present
