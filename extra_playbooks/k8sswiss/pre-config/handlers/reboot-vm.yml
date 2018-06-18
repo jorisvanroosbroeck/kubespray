@@ -4,4 +4,4 @@
     remote_user: root
 
     tasks:
-    - shell: shutdown -r now
+    - command: shutdown -r now
