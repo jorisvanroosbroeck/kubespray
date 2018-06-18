@@ -14,4 +14,4 @@
 
     - name: Remove dependancies that are no longer required
       apt:
-        autoremove: yes
+        command: apt-get -y autoremove
