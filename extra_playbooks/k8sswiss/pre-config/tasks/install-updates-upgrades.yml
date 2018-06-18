@@ -13,5 +13,4 @@
         upgrade: dist
 
     - name: Remove dependancies that are no longer required
-      apt:
-        command: apt-get -y autoremove
+      command: apt-get -y autoremove
