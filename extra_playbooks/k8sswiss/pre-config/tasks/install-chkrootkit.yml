@@ -5,5 +5,5 @@
     tasks:
     - name: Install chrootkit
       apt:
-        name: chrootkit
+        name: chkrootkit
         state: present
