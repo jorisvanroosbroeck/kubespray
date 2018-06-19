@@ -91,8 +91,8 @@ function instKubespray {
     echo " "
 
     # Playbooks: Prepaire Kubernetes Cluster
-    echo "ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/tasks/config-disable-swap.yml"
-    echo "ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/tasks/config-ip-forward.yml"
+    ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/tasks/config-disable-swap.yml
+    ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/tasks/config-ip-forward.yml
 
     # Playbooks: Reboot Kubernetes Cluster
     echo "ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/handlers/reboot-vm.yml"
