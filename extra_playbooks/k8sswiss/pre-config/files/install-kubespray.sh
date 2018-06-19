@@ -68,10 +68,6 @@ function confKubespray {
     chmod 400 .ssh/id_rsa
     sudo chown sysadmin:sysadmin .ssh/id_rsa
 
-    # Copy SSH key ( Still needed? )
-    #sudo mkdir /etc/ansible/.ssh
-    #sudo cp -rfv /home/sysadmin/kubespray/extra_playbooks/k8sswiss/pre-config/files/id_rsa.pub /etc/ansible/.ssh/id_rsa.pub
-
     # Install Python requirements
     sudo apt-get install python python-pip -y
 
@@ -87,17 +83,14 @@ function instKubespray {
     echo " "
 
     # Playbooks: Prepaire Kubernetes Cluster
-    ansible-playbook -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/main.yml --key-file=/home/sysadmin/.ssh/id_rsa -b -e 'ansible_user=sysadmin host_key_checking=false'
-    ansible-playbook -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/tasks/config-disable-swap.yml --key-file=/home/sysadmin/.ssh/id_rsa -b -e 'ansible_user=sysadmin host_key_checking=false'
-    ansible-playbook -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/tasks/config-ip-forward.yml --key-file=/home/sysadmin/.ssh/id_rsa -b -e 'ansible_user=sysadmin host_key_checking=false'
+    echo "ansible-playbook -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/tasks/config-disable-swap.yml"
+    echo "ansible-playbook -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/tasks/config-ip-forward.yml"
 
     # Playbooks: Reboot Kubernetes Cluster
-    ansible-playbook -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/handlers/reboot-vm.yml --key-file=/home/sysadmin/.ssh/id_rsa -b -e 'ansible_user=sysadmin host_key_checking=false'
-
-    #sleep 2m
+    echo "ansible-playbook -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/handlers/reboot-vm.yml"
 
     # Playbook: Install Kubernetes Cluster
-    echo "ansible-playbook -i kubespray/inventory/k8sswiss/hosts.ini kubespray/cluster.yml --key-file=/home/sysadmin/.ssh/id_rsa -b -e 'ansible_user=sysadmin host_key_checking=false'"
+    echo "ansible-playbook -i kubespray/inventory/k8sswiss/hosts.ini kubespray/cluster.yml"
 }
 
 # PROGRAM
