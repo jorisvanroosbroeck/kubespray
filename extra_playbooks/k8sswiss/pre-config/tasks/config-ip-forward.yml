@@ -1,6 +1,7 @@
 ---
   - name: Enable IPv4 forwarding
     hosts: k8s-cluster
+    remote_user: sysadmin
 
     tasks:
     - name: Enable IPv4 in sysctl.conf file
