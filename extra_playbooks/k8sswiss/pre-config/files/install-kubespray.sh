@@ -70,8 +70,11 @@ function confKubespray {
 
     # Add SSH fingerprint VM's
     ssh-keyscan -H bastion >> .ssh/known_hosts
+    ssh-keyscan -H 10.0.1.6 >> .ssh/known_hosts
     ssh-keyscan -H master01 >> .ssh/known_hosts
+    ssh-keyscan -H 10.0.1.5 >> .ssh/known_hosts
     ssh-keyscan -H worker01 >> .ssh/known_hosts
+    ssh-keyscan -H 10.0.2.5 >> .ssh/known_hosts
 
     # Install Python requirements
     sudo apt-get install python python-pip -y
