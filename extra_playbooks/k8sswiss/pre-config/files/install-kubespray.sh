@@ -68,6 +68,11 @@ function confKubespray {
     chmod 400 .ssh/id_rsa
     sudo chown sysadmin:sysadmin .ssh/id_rsa
 
+    # Add SSH fingerprint VM's
+    ssh-keyscan -H bastion >> .ssh/known_hosts
+    ssh-keyscan -H master01 >> .ssh/known_hosts
+    ssh-keyscan -H worker01 >> .ssh/known_hosts
+
     # Install Python requirements
     sudo apt-get install python python-pip -y
 
