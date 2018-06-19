@@ -87,6 +87,7 @@ function instKubespray {
     echo " "
 
     # Playbooks: Prepaire Kubernetes Cluster
+    ansible-playbook -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/main.yml --key-file=/home/sysadmin/.ssh/id_rsa -b -e 'ansible_user=sysadmin host_key_checking=false'
     ansible-playbook -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/tasks/config-disable-swap.yml --key-file=/home/sysadmin/.ssh/id_rsa -b -e 'ansible_user=sysadmin host_key_checking=false'
     ansible-playbook -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/tasks/config-ip-forward.yml --key-file=/home/sysadmin/.ssh/id_rsa -b -e 'ansible_user=sysadmin host_key_checking=false'
 
