@@ -20,7 +20,7 @@ function createLogFile {
     if [ ! -d "$LOGDIR" ]
     then
         mkdir "$LOGDIR"
-        chown sysadmin:sysadmin $LOGDIR
+        chown sysadmin:sysadmin "$LOGDIR"
     fi
     
     TIMESTAMP=`date +"%Y%m%d-%H%M%S"`
