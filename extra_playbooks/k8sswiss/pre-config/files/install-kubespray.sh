@@ -69,8 +69,8 @@ function confKubespray {
     sudo chown sysadmin:sysadmin .ssh/id_rsa
 
     # Copy SSH key ( Still needed? )
-    sudo mkdir /etc/ansible/.ssh
-    sudo cp -rfv /home/sysadmin/kubespray/extra_playbooks/k8sswiss/pre-config/files/id_rsa.pub /etc/ansible/.ssh/id_rsa.pub
+    #sudo mkdir /etc/ansible/.ssh
+    #sudo cp -rfv /home/sysadmin/kubespray/extra_playbooks/k8sswiss/pre-config/files/id_rsa.pub /etc/ansible/.ssh/id_rsa.pub
 
     # Install Python requirements
     sudo apt-get install python python-pip -y
