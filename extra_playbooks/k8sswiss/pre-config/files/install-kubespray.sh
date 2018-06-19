@@ -96,7 +96,7 @@ function instKubespray {
     #sleep 2m
 
     # Playbook: Install Kubernetes Cluster
-    #ansible-playbook -i kubespray/inventory/k8sswiss/hosts.ini kubespray/cluster.yml --key-file=/home/sysadmin/.ssh/id_rsa -b -e 'ansible_user=sysadmin host_key_checking=false'
+    echo "ansible-playbook -i kubespray/inventory/k8sswiss/hosts.ini kubespray/cluster.yml --key-file=/home/sysadmin/.ssh/id_rsa -b -e 'ansible_user=sysadmin host_key_checking=false'"
 }
 
 # PROGRAM
