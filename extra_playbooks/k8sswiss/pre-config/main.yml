@@ -1,14 +1,2 @@
 ---
   # Playbook that runs on all hosts
-  - hosts: all
-    - name: Import Ansible Playbooks
-      - import_tasks: tasks/install-updates-upgrades.yml
-      - import_tasks: tasks/config-disable-swap.yml
-      - import_tasks: tasks/config-ip-forward.yml
-      - import_tasks: tasks/install-chrootkit.yml
-      - import_tasks: tasks/install-htop.yml
-      - import_tasks: tasks/install-iftop.yml
-      - import_tasks: tasks/install-lynis.yml
-      - import_tasks: tasks/install-ncdu.yml
-      - import_tasks: tasks/install-python.yml
-      - import_tasks: tasks/install-rkhunter.yml

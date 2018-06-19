@@ -1,6 +1,6 @@
 ---
   - name: Disable SWAP
-    hosts: all
+    hosts: k8s-cluster
 
     tasks:
     - name: Remove swapfile from /etc/fstab
