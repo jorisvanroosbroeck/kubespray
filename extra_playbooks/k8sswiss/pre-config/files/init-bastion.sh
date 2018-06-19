@@ -20,6 +20,7 @@ function createLogFile {
     if [ ! -d "$LOGDIR" ]
     then
         mkdir "$LOGDIR"
+        chmod -Rfv 0666 $LOGDIR
     fi
     
     TIMESTAMP=`date +"%Y%m%d-%H%M%S"`
