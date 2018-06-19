@@ -179,39 +179,6 @@ function checkConfig {
     fi
 }
 
-function confKubespray {
-    TIMESTAMP=`getDate`
-    
-    echo " "
-    echo "========== $TIMESTAMP - Configure Kubespray =========="
-    echo " "
-
-    # Copy SSH key ( Still needed? )
-    sudo mkdir /etc/ansible/.ssh
-    sudo cp -rfv /home/sysadmin/kubespray/extra_playbooks/k8sswiss/pre-config/files/id_rsa.pub /etc/ansible/.ssh/id_rsa.pub
-
-    # Install Python requirements
-    sudo apt-get install python python-pip -y
-
-    # Install Kubespray requirements
-    pip install -r kubespray/requirements.txt
-}
-
-function instKubespray {
-    TIMESTAMP=`getDate`
-    
-    echo " "
-    echo "========== $TIMESTAMP - Install Kubespray =========="
-    echo " "
-
-    # Playbooks: Prepaire Kubernetes Cluster
-    ansible-playbook -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/tasks/config-disable-swap.yml --key-file=/home/sysadmin/.ssh/id_rsa -b -e 'ansible_user=sysadmin host_key_checking=false'
-    ansible-playbook -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/tasks/config-ip-forward.yml --key-file=/home/sysadmin/.ssh/id_rsa -b -e 'ansible_user=sysadmin host_key_checking=false'
-
-    # Playbooks: Reboot Kubernetes Cluster
-    ansible-playbook -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/handlers/reboot-vm.yml --key-file=/home/sysadmin/.ssh/id_rsa -b -e 'ansible_user=sysadmin host_key_checking=false'
-}
-
 # PROGRAM
 # =======
 createLogFile
@@ -219,7 +186,5 @@ stateScript 'Start'
 preConfig
 instAnsible
 confAnsible
-confKubespray
-instKubespray
 stateScript 'End'
-vmReboot
+#vmReboot
