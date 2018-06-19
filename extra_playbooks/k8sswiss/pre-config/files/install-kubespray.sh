@@ -63,6 +63,10 @@ function confKubespray {
     echo "========== $TIMESTAMP - Configure Kubespray =========="
     echo " "
 
+    # Copy SSH private key
+    cp /home/sysadmin/kubespray/extra_playbooks/k8sswiss/pre-config/files/id_rsa .ssh/id_rsa
+    chmod 400 .ssh/id_rsa
+
     # Copy SSH key ( Still needed? )
     sudo mkdir /etc/ansible/.ssh
     sudo cp -rfv /home/sysadmin/kubespray/extra_playbooks/k8sswiss/pre-config/files/id_rsa.pub /etc/ansible/.ssh/id_rsa.pub
