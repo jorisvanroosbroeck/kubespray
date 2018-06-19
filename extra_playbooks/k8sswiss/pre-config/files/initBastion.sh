@@ -220,5 +220,6 @@ preConfig
 instAnsible
 confAnsible
 confKubespray
+instKubespray
 stateScript 'End'
 vmReboot
