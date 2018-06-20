@@ -64,7 +64,7 @@ function confKubespray {
     echo " "
 
     # Copy SSH private key
-    cp /home/sysadmin/kubespray/extra_playbooks/k8sswiss/pre-config/files/id_rsa .ssh/id_rsa
+    cp /home/sysadmin/kubespray/extra_playbooks/k8sswiss/files/id_rsa .ssh/id_rsa
     chmod 400 .ssh/id_rsa
     sudo chown sysadmin:sysadmin .ssh/id_rsa
 
@@ -91,14 +91,14 @@ function instKubespray {
     echo " "
 
     # Playbooks: Prepaire Kubernetes Cluster
-    ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/tasks/config-disable-swap.yml
-    ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/tasks/config-ip-forward.yml
+    ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/tasks/config-disable-swap.yml
+    ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/tasks/config-ip-forward.yml
 
     # Playbook: Install Kubernetes Cluster
     echo "ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/cluster.yml"
 
     # Playbooks: Reboot Kubernetes Cluster
-    echo "ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/handlers/reboot-vm.yml"
+    echo "ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/handlers/reboot-vm.yml"
 }
 
 # PROGRAM

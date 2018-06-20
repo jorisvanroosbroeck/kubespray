@@ -1,18 +1,5 @@
 ---
-  - hosts: k8s-cluster
-    tasks:
-    - name: Remove swapfile from /etc/fstab
-      mount: swap
-      fstype: swap
-      state: absent
-    - name: Disable swap
-      command: swapoff -a
-      when: ansible_swaptotal_mb > 0
-      
-###############################
-# Original Kubespray Playbook #
-###############################
-  - hosts: localhost
+- hosts: localhost
   gather_facts: False
   roles:
     - { role: kubespray-defaults}
