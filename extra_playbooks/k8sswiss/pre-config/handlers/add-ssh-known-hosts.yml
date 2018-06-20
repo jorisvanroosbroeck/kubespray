@@ -1,6 +1,0 @@
----
-  - name: Add SSH fingerprint to known_hosts file
-    known_hosts:
-      path: /home/sysadmin/.ssh/known_hosts
-      name: master01
-      key: /home/sysadmin/.ssh/id_rsa
