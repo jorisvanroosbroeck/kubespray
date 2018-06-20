@@ -95,7 +95,7 @@ function instKubespray {
     ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/tasks/config-ip-forward.yml
 
     # Playbook: Install Kubernetes Cluster
-    ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/cluster.yml
+    echo "ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/cluster.yml"
 
     # Playbooks: Reboot Kubernetes Cluster
     echo "ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/pre-config/handlers/reboot-vm.yml"
