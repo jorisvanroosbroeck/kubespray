@@ -21,12 +21,12 @@ function getVMs {
     if [ $VMNAME == "etcd" ]
     then
         echo "[etcd]" >> $HOSTFILE
-    do
+    fi
 
     if [ $VMNAME == "worker" ]
     then
         echo "[kube-node]" >> $HOSTFILE
-    do
+    fi
 
     for (( i=0;i<$MASTERCOUNT;i++ ))
     do
