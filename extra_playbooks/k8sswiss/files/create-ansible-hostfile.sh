@@ -11,7 +11,7 @@ HOSTFILE="hosts.ini"
 # FUNCTIONS
 # =========
 function getVMs {
-    VMNAME="master"
+    VMNAME=$1
     VMCOUNT=""
 
     if [ $VMNAME == "master" ]
@@ -64,4 +64,6 @@ function getVMs {
 
 # PROGRAM
 # =======
-getVMs
+getVMs "master"
+getVMs "etcd"
+getVMs "worker"
