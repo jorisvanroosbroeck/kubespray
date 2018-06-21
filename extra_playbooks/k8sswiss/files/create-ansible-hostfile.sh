@@ -2,7 +2,7 @@
 
 # VARIABLEN
 # =========
-declare -i MASTERCOUNT=2
+declare -i MASTERCOUNT=1
 declare -i ETCDCOUNT=0
 declare -i WORKERCOUNT=1
 HOSTFILE="hosts.ini"
