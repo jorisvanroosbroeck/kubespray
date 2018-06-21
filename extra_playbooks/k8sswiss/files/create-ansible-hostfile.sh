@@ -60,8 +60,6 @@ function beginHostfile {
             fi
         done
     fi
-
-    echo " " >> $HOSTFILE
 }
 
 function getVMs {
@@ -129,7 +127,9 @@ function endHostfile {
 beginHostfile "master"
 beginHostfile "etcd"
 beginHostfile "worker"
+echo " "
 beginHostfile "bastion"
+echo " "
 getVMs "master"
 getVMs "etcd"
 getVMs "worker"
