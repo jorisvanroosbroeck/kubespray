@@ -60,7 +60,9 @@ function getVMs {
             echo "${VMNAME}${COUNT}" >> $HOSTFILE
         fi
     done
+}
 
+function finishHostfile {
     echo " " >> $HOSTFILE
     echo "[k8s-cluster:children]" >> $HOSTFILE
     echo "kube-master" >> $HOSTFILE
@@ -72,3 +74,4 @@ function getVMs {
 getVMs "master"
 getVMs "etcd"
 getVMs "worker"
+finishHostfile
