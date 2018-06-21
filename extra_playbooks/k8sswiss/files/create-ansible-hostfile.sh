@@ -21,7 +21,15 @@ function beginHostfile {
 
     if [ $VMNAME == "etcd" ]
     then
-        VMCOUNT=0
+        if [ $ETCDCOUNT -eq 0 ]
+        then
+            VMCOUNT=0
+        fi
+
+        if [ $ETCDCOUNT -gt 0 ]
+        then
+            VMCOUNT=$ETCDCOUNT
+        fi
     fi
     
     if [ $VMNAME == "worker" ]
