@@ -2,25 +2,45 @@
 
 # VARIABLEN
 # =========
-MASTERCOUNT=2
-ETCDCOUNT=0
-WORKERCOUNT=1
-HOSTFILE="host.ini"
+declare -i MASTERCOUNT=2
+declare -i ETCDCOUNT=0
+declare -i WORKERCOUNT=1
+HOSTFILE="hosts.ini"
 
 
 # FUNCTIONS
 # =========
 function getVMs {
-    HOSTNAME="master"
+    VMNAME="master"
 
-    echo "[kube-master]" > $HOSTFILE
-
-    for (( i=0;i<$MASTERCOUNT;i++))
+    if [ $VMNAME == "master" ]
+    then
+        echo "[kube-master]" > $HOSTFILE
     do
-        COUNT=$MASTERCOUNT+1
-        HOSTNAME="$HOSTNAME" + "0" + "$COUNT"
 
-        echo "$HOSTNAME"
+    if [ $VMNAME == "etcd" ]
+    then
+        echo "[etcd]" >> $HOSTFILE
+    do
+
+    if [ $VMNAME == "worker" ]
+    then
+        echo "[kube-node]" >> $HOSTFILE
+    do
+
+    for (( i=0;i<$MASTERCOUNT;i++ ))
+    do
+        declare -i COUNT=$i+1
+
+        if [ $COUNT -lt 10 ]
+        then
+            echo "${VMNAME}0${COUNT}" >> $HOSTFILE
+        fi
+
+        if [ $COUNT -gt 9 ]
+        then
+            echo "${VMNAME}${COUNT}" >> $HOSTFILE
+        fi
     done
 }
 
