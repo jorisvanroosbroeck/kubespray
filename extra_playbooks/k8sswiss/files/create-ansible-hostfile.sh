@@ -2,7 +2,7 @@
 
 # VARIABLEN
 # =========
-declare -i MASTERCOUNT=1
+declare -i MASTERCOUNT=2
 declare -i ETCDCOUNT=0
 declare -i WORKERCOUNT=1
 HOSTFILE="hosts.ini"
@@ -35,30 +35,31 @@ function beginHostfile {
     then
         VMCOUNT=$WORKERCOUNT
     fi
+
     if [ $VMNAME == "bastion" ]
     then
         IP=`getent hosts $VMNAME | cut -d' ' -f1`
         echo "$VMNAME ansible_host=$IP" >> $HOSTFILE
+    else
+        for (( i=0;i<$VMCOUNT;i++ ))
+        do
+            declare -i COUNT=$i+1
+
+            if [ $COUNT -lt 10 ]
+            then
+                IP=`getent hosts ${VMNAME}0${COUNT} | cut -d' ' -f1`
+
+                echo "${VMNAME}0${COUNT} ansible_host=$IP" >> $HOSTFILE
+            fi
+
+            if [ $COUNT -gt 9 ]
+            then
+                IP=`getent hosts ${VMNAME}0${COUNT} | cut -d' ' -f1`
+
+                echo "${VMNAME}${COUNT} ansible_host=$IP" >> $HOSTFILE
+            fi
+        done
     fi
-
-    for (( i=0;i<$VMCOUNT;i++ ))
-    do
-        declare -i COUNT=$i+1
-
-        if [ $COUNT -lt 10 ]
-        then
-            IP=`getent hosts ${VMNAME}0${COUNT} | cut -d' ' -f1`
-
-            echo "${VMNAME}0${COUNT} ansible_host=$IP" >> $HOSTFILE
-        fi
-
-        if [ $COUNT -gt 9 ]
-        then
-            IP=`getent hosts ${VMNAME}0${COUNT} | cut -d' ' -f1`
-
-            echo "${VMNAME}${COUNT} ansible_host=$IP" >> $HOSTFILE
-        fi
-    done
 
     echo " " >> $HOSTFILE
 }
@@ -125,7 +126,6 @@ function endHostfile {
 
 # PROGRAM
 # =======
-echo "# Inventory file Kubespray" > $HOSTFILE
 beginHostfile "master"
 beginHostfile "etcd"
 beginHostfile "worker"
