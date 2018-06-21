@@ -60,6 +60,8 @@ function getVMs {
             echo "${VMNAME}${COUNT}" >> $HOSTFILE
         fi
     done
+
+    echo " " >> $HOSTFILE
 }
 
 # PROGRAM
