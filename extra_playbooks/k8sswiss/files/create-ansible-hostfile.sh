@@ -18,19 +18,12 @@ function beginHostfile {
     then
         VMCOUNT=$MASTERCOUNT
     fi
+
     if [ $VMNAME == "etcd" ]
     then
-        if [ $ETCDCOUNT -eq 0 ]
-        then
-            VMNAME="master"
-            VMCOUNT=$MASTERCOUNT
-        fi
-
-        if [ $ETCDCOUNT -gt 0 ]
-        then
-            VMCOUNT=$ETCDCOUNT
-        fi
+        VMCOUNT=0
     fi
+    
     if [ $VMNAME == "worker" ]
     then
         VMCOUNT=$WORKERCOUNT
