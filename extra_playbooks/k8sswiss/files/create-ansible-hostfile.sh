@@ -10,6 +10,58 @@ HOSTFILE="hosts.ini"
 
 # FUNCTIONS
 # =========
+function beginHostfile {
+    VMNAME=$1
+    VMCOUNT=""
+
+    if [ $VMNAME == "master" ]
+    then
+        VMCOUNT=$MASTERCOUNT
+    fi
+    if [ $VMNAME == "etcd" ]
+    then
+        if [ $ETCDCOUNT -eq 0 ]
+        then
+            VMNAME="master"
+            VMCOUNT=$MASTERCOUNT
+        fi
+
+        if [ $ETCDCOUNT -gt 0 ]
+        then
+            VMCOUNT=$ETCDCOUNT
+        fi
+    fi
+    if [ $VMNAME == "worker" ]
+    then
+        VMCOUNT=$WORKERCOUNT
+    fi
+    if [ $VMNAME == "bastion" ]
+    then
+        VMCOUNT=0
+    fi
+
+    for (( i=0;i<$VMCOUNT;i++ ))
+    do
+        declare -i COUNT=$i+1
+
+        if [ $COUNT -lt 10 ]
+        then
+            IP=`getent hosts ${VMNAME}0${COUNT} | cut -d' ' -f1`
+
+            echo "${VMNAME}0${COUNT} ansible_host=$IP" >> $HOSTFILE
+        fi
+
+        if [ $COUNT -gt 9 ]
+        then
+            IP=`getent hosts ${VMNAME}0${COUNT} | cut -d' ' -f1`
+
+            echo "${VMNAME}${COUNT} ansible_host=$IP" >> $HOSTFILE
+        fi
+    done
+
+    echo " " >> $HOSTFILE
+}
+
 function getVMs {
     VMNAME=$1
     VMCOUNT=""
@@ -18,7 +70,7 @@ function getVMs {
     then
         VMCOUNT=$MASTERCOUNT
 
-        echo "[kube-master]" > $HOSTFILE
+        echo "[kube-master]" >> $HOSTFILE
     fi
 
     if [ $VMNAME == "etcd" ]
@@ -64,7 +116,7 @@ function getVMs {
     echo " " >> $HOSTFILE
 }
 
-function finishHostfile {
+function endHostfile {
     echo "[k8s-cluster:children]" >> $HOSTFILE
     echo "kube-master" >> $HOSTFILE
     echo "kube-master" >> $HOSTFILE
@@ -72,7 +124,12 @@ function finishHostfile {
 
 # PROGRAM
 # =======
+echo "# Inventory file Kubespray" > $HOSTFILE
+beginHostfile "master"
+beginHostfile "etcd"
+beginHostfile "worker"
+beginHostfile "bastion"
 getVMs "master"
 getVMs "etcd"
 getVMs "worker"
-finishHostfile
+endHostfile
