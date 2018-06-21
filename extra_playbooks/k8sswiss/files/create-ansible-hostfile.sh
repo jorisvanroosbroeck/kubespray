@@ -124,12 +124,13 @@ function endHostfile {
 
 # PROGRAM
 # =======
+echo "" > $HOSTFILE
 beginHostfile "master"
 beginHostfile "etcd"
 beginHostfile "worker"
-echo " "
+echo " " >> $HOSTFILE
 beginHostfile "bastion"
-echo " "
+echo " " >> $HOSTFILE
 getVMs "master"
 getVMs "etcd"
 getVMs "worker"
