@@ -16,7 +16,7 @@ function getVMs {
     if [ $VMNAME == "master" ]
     then
         echo "[kube-master]" > $HOSTFILE
-    do
+    fi
 
     if [ $VMNAME == "etcd" ]
     then
