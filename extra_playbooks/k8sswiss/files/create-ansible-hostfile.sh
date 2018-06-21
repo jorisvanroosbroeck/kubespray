@@ -62,6 +62,9 @@ function getVMs {
     done
 
     echo " " >> $HOSTFILE
+    echo "[k8s-cluster:children]" >> $HOSTFILE
+    echo "kube-master" >> $HOSTFILE
+    echo "kube-master" >> $HOSTFILE
 }
 
 # PROGRAM
