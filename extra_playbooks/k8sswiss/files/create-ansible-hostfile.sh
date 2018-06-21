@@ -124,7 +124,7 @@ function endHostfile {
 
 # PROGRAM
 # =======
-echo "" > $HOSTFILE
+echo "# Hostfile for installing Kubespray through Ansible" > $HOSTFILE
 beginHostfile "master"
 beginHostfile "etcd"
 beginHostfile "worker"
