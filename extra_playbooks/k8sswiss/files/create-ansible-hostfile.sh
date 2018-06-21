@@ -37,7 +37,8 @@ function beginHostfile {
     fi
     if [ $VMNAME == "bastion" ]
     then
-        VMCOUNT=0
+        IP=`getent hosts $VMNAME | cut -d' ' -f1`
+        echo "$VMNAME ansible_host=$IP" >> $HOSTFILE
     fi
 
     for (( i=0;i<$VMCOUNT;i++ ))
