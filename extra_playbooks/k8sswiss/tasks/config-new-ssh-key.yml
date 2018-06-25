@@ -1,0 +1,10 @@
+---
+- name: Create new SSH Key
+  hosts: bastion
+  user:
+    name: sysadmin
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: .ssh/id_rsa
+  delegate_to: localhost
+  run_once: True
