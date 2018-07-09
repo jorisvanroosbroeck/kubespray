@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Install Python requirements
-#sudo apt-get install python python-pip -y
+sudo apt-get install python python-pip -y
 
 # Install Kubespray requirements
-#pip install -r "$HOME/kubespray/requirements.txt"
+pip install -r "$HOME/kubespray/requirements.txt"
 
 # SSH fingerprints
 ssh-keyscan -H 172.16.1.10 >> .ssh/known_hosts
