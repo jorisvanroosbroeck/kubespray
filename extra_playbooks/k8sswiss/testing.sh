@@ -8,6 +8,7 @@ pip install -r "$HOME/kubespray/requirements.txt"
 
 # SSH Copy Key
 cp "$HOME/kubespray/extra_playbooks/OLD-k8sswiss/files/id_rsa" "$HOME/.ssh/id_rsa"
+chmod 400 "$HOME/.ssh/id_rsa"
 
 # SSH fingerprints
 ssh-keyscan -H 172.16.1.10 >> .ssh/known_hosts
