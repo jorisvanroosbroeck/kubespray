@@ -13,12 +13,12 @@ ssh-keyscan -H 172.16.1.20 >> .ssh/known_hosts
 ssh-keyscan -H 172.16.1.21 >> .ssh/known_hosts
 ssh-keyscan -H 172.16.1.22 >> .ssh/known_hosts
 ssh-keyscan -H 172.16.1.30 >> .ssh/known_hosts
-ssh-keyscan -H c57b-cm-0 >> .ssh/known_hosts
-ssh-keyscan -H c57b-master-0 >> .ssh/known_hosts
-ssh-keyscan -H c57b-master-1 >> .ssh/known_hosts
-ssh-keyscan -H c57b-worker-0 >> .ssh/known_hosts
-ssh-keyscan -H c57b-worker-1 >> .ssh/known_hosts
-ssh-keyscan -H c57b-worker-2 >> .ssh/known_hosts
+ssh-keyscan -H 860c-cm-0 >> .ssh/known_hosts
+ssh-keyscan -H 860c-master-0 >> .ssh/known_hosts
+ssh-keyscan -H 860c-master-1 >> .ssh/known_hosts
+ssh-keyscan -H 860c-worker-0 >> .ssh/known_hosts
+ssh-keyscan -H 860c-worker-1 >> .ssh/known_hosts
+ssh-keyscan -H 860c-worker-2 >> .ssh/known_hosts
 
 # Bootstrap OS'en
 #ansible-playbook --ask-become-pass -b -i "$HOME/kubespray/inventory/k8sswiss/hosts.ini" "$HOME/kubespray/extra_playbooks/k8sswiss/bootstrap-k8s-bastion-remote.yml" -v
