@@ -1,0 +1,4 @@
+---
+- hosts: localhost
+  roles:
+  - { role: bootstrap-k8s-bastion-local }

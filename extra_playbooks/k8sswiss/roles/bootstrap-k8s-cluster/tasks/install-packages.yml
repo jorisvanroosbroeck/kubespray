@@ -1,0 +1,5 @@
+---
+- name: Install package - Ubuntu Server
+  apt:
+    name: ubuntu-server
+    state: present

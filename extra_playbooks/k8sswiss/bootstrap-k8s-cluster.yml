@@ -1,0 +1,8 @@
+---
+- hosts: bastion:k8s-cluster
+  roles:
+  - { role: avahi-mdns }
+
+- hosts: k8s-cluster
+  roles:
+  - { role: bootstrap-k8s-cluster }

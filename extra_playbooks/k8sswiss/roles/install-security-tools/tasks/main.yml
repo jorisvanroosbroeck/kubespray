@@ -1,0 +1,5 @@
+---
+# tasks file for $HOME/my-net/scripts/ansible/roles/install-security-tools
+- import_tasks: install-chkrootkit.yml
+- import_tasks: install-lynis.yml
+- import_tasks: install-rkhunter.yml

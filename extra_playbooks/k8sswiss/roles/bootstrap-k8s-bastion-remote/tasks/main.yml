@@ -1,0 +1,3 @@
+---
+# tasks file for $HOME/my-net/scripts/ansible/roles/
+- import_tasks: install-python.yml

@@ -1,0 +1,15 @@
+---
+- name: Remove SWAP from /etc/fstab
+  mount:
+    name: swap
+    fstype: swap
+    state: absent
+
+- name: Disable SWAP
+  command: swapoff -a
+  when: ansible_swaptotal_mb > 0
+
+- name: Partition old SWAP partition
+  filesystem:
+    fstype: ext4
+    dev: /dev/sda3

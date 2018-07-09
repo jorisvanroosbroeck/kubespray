@@ -1,0 +1,5 @@
+---
+- name: Configure bash shell for user
+  user:
+    name: sysadmin
+    shell: /bin/bash

@@ -1,0 +1,5 @@
+---
+- name: Install iftop
+  apt:
+    name: iftop
+    state: present

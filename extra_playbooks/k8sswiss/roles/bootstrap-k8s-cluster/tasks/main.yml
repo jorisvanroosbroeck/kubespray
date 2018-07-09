@@ -1,0 +1,7 @@
+---
+# tasks file for $HOME/my-net/scripts/ansible/roles/bootstrap-k8s-cluster
+- import_tasks: install-packages.yml
+- import_tasks: config-swap-disable.yml
+- import_tasks: config-ip-forward.yml
+- import_tasks: config-user.yml
+- import_tasks: install-updates-upgrades.yml

@@ -1,0 +1,5 @@
+---
+# tasks file for $HOME/my-net/scripts/ansible/roles/install-base-tools
+- import_tasks: install-htop.yml
+- import_tasks: install-iftop.yml
+- import_tasks: install-ncdu.yml

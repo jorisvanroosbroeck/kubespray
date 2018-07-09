@@ -1,0 +1,5 @@
+---
+- name: Install chrootkit
+  apt:
+    name: chkrootkit
+    state: present
