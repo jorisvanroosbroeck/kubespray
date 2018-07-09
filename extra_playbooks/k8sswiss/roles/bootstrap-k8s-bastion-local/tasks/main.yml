@@ -1,4 +1,4 @@
 ---
 # tasks file for $HOME/my-net/scripts/ansible/roles/
-#- import_tasks: config-ssh-keys.yml
+- import_tasks: config-ssh-keys.yml
 - import_tasks: add-fingerprint-ssh-known_hosts.yml

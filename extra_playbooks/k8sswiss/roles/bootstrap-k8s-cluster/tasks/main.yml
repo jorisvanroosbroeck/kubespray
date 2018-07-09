@@ -4,4 +4,4 @@
 - import_tasks: config-swap-disable.yml
 - import_tasks: config-ip-forward.yml
 - import_tasks: config-user.yml
-- import_tasks: install-updates-upgrades.yml
+#- import_tasks: install-updates-upgrades.yml
