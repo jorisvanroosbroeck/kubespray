@@ -13,3 +13,4 @@
   filesystem:
     fstype: ext4
     dev: /dev/sda3
+    force: true

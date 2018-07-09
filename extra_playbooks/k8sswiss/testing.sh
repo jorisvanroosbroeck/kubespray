@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Install Python requirements
-sudo apt-get install python python-pip -y
+#sudo apt-get install python python-pip -y
 
 # Install Kubespray requirements
-pip install -r "$HOME/kubespray/requirements.txt"
+#pip install -r "$HOME/kubespray/requirements.txt"
 
 # SSH fingerprints
 ssh-keyscan -H 172.16.1.10 >> .ssh/known_hosts
@@ -21,8 +21,8 @@ ssh-keyscan -H c57b-worker-1 >> .ssh/known_hosts
 ssh-keyscan -H c57b-worker-2 >> .ssh/known_hosts
 
 # Bootstrap OS'en
-ansible-playbook --ask-become-pass -b -i "$HOME/kubespray/inventory/k8sswiss/hosts.ini" "$HOME/kubespray/extra_playbooks/k8sswiss/bootstrap-k8s-bastion-remote.yml" -vvvvv
-ansible-playbook --ask-become-pass -b -i "$HOME/kubespray/inventory/k8sswiss/hosts.ini" "$HOME/kubespray/extra_playbooks/k8sswiss/bootstrap-k8s-bastion-local.yml" -vvvvv
+#ansible-playbook --ask-become-pass -b -i "$HOME/kubespray/inventory/k8sswiss/hosts.ini" "$HOME/kubespray/extra_playbooks/k8sswiss/bootstrap-k8s-bastion-remote.yml" -vvvvv
+#ansible-playbook --ask-become-pass -b -i "$HOME/kubespray/inventory/k8sswiss/hosts.ini" "$HOME/kubespray/extra_playbooks/k8sswiss/bootstrap-k8s-bastion-local.yml" -vvvvv
 ansible-playbook --ask-become-pass -b -i "$HOME/kubespray/inventory/k8sswiss/hosts.ini" "$HOME/kubespray/extra_playbooks/k8sswiss/bootstrap-k8s-cluster.yml" -vvvvv
 
 # Install Kubespray
