@@ -21,9 +21,9 @@ ssh-keyscan -H c57b-worker-1 >> .ssh/known_hosts
 ssh-keyscan -H c57b-worker-2 >> .ssh/known_hosts
 
 # Bootstrap OS'en
-ansible-playbook --ask-become-pass -b -i "$HOME/kubespray/inventory/k8sswiss/hosts.ini" "$HOME/kubespray/extra_playbooks/k8sswiss/bootstrap-k8s-bastion-remote.yml"
-ansible-playbook --ask-become-pass -b -i "$HOME/kubespray/inventory/k8sswiss/hosts.ini" "$HOME/kubespray/extra_playbooks/k8sswiss/bootstrap-k8s-bastion-local.yml"
-ansible-playbook --ask-become-pass -b -i "$HOME/kubespray/inventory/k8sswiss/hosts.ini" "$HOME/kubespray/extra_playbooks/k8sswiss/bootstrap-k8s-cluster.yml"
+ansible-playbook --ask-become-pass -b -i "$HOME/kubespray/inventory/k8sswiss/hosts.ini" "$HOME/kubespray/extra_playbooks/k8sswiss/bootstrap-k8s-bastion-remote.yml" -vvvvv
+ansible-playbook --ask-become-pass -b -i "$HOME/kubespray/inventory/k8sswiss/hosts.ini" "$HOME/kubespray/extra_playbooks/k8sswiss/bootstrap-k8s-bastion-local.yml" -vvvvv
+ansible-playbook --ask-become-pass -b -i "$HOME/kubespray/inventory/k8sswiss/hosts.ini" "$HOME/kubespray/extra_playbooks/k8sswiss/bootstrap-k8s-cluster.yml" -vvvvv
 
 # Install Kubespray
 echo "ansible-playbook --ask-become-pass -b -i '$HOME/kubespray/inventory/k8sswiss/hosts.ini' '$HOME/kubespray/cluster.yml'"
